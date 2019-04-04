@@ -27,9 +27,9 @@ def minDistance(l1, l2):
     point_sorted = sorted(point)
 
     if x0 < point_sorted[0]:
-        return point_sorted[-1] - x0
+        return point_sorted[-2] - x0
     elif x0 > point_sorted[-1]:
-        return x0 - point_sorted[0]
+        return x0 - point_sorted[1]
     else:
         # 判断x0与左右两个端点之间的距离
         l = x0 - point_sorted[0]
@@ -42,8 +42,8 @@ def minDistance(l1, l2):
 
 if __name__ == '__main__':
     test1 = {'l1': [3, 10], 'l2': [1, 7, 12], 'result': 7}
-    test2 = {'l1': [3, 14], 'l2': [1, 7, 12], 'result': 13}
-    test3 = {'l1': [3, 0], 'l2': [1, 7, 12], 'result': 12}
+    test2 = {'l1': [3, 14], 'l2': [1, 7, 12], 'result': 7}
+    test3 = {'l1': [3, 0], 'l2': [1, 7, 12], 'result': 7}
 
     test = [test1, test2, test3]
 
