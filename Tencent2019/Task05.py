@@ -34,27 +34,6 @@
 # 3 6
 # 4 8
 
-import numpy as np
-
-def countBlock(filename):
-    f = open(filename, 'r')
-    T = int(f.readline().strip())
-    q = {}
-    for i in range(T):
-        q['Board'] = [int(i) for i in f.readline().strip().split(' ')]
-        q['first'] = [int(i) for i in f.readline().strip().split(' ')]
-        q['second'] = [int(i) for i in f.readline().strip().split(' ')]
-
-        # --------- 开始计算 ----------
-        # 最开始的白块与黑块的数量
-        board = np.array([i % 2 for i in range(q['Board'][0] * q['Board'][1])]).reshape(q['Board'][0], q['Board'][1])
-        board[q['first'][0]-1: q['first'][2], q['first'][1]-1: q['first'][3]] = 0
-        board[q['second'][0]-1: q['second'][2], q['second'][1]-1: q['second'][3]] = 1
-
-        print("{0} {1}".format(q['Board'][0] * q['Board'][1] - board.sum(), board.sum()))
-        # --------- 结束计算 ----------
-
-
 def numofBlock(q):
     w, b = 0, 0
     areacount = (q[2] - q[0] + 1) * (q[3] - q[1] + 1)
@@ -114,9 +93,6 @@ def countBlock1(filename):
             print('{0} {1}'.format(white, black))
 
         # --------- 结束计算 ----------
-
-
-
 
 if __name__ == '__main__':
     countBlock1('Task05.txt')
